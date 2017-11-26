@@ -1,5 +1,5 @@
 package com.structures.iterator;
 
-public interface IteratorInterface {
+public class TreeIterator<T> {
 
 }
