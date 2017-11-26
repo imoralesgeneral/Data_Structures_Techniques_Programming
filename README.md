@@ -1,2 +1,2 @@
-# Date-Structures-And-Techniques
-Date structures and techniques of programming
+# Data-Structures-And-Techniques
+Data structures and techniques of programming
