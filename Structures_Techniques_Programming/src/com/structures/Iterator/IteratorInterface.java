@@ -1,4 +1,4 @@
-package com.structures.iterator;
+package com.structures.Iterator;
 
 public interface IteratorInterface {
 
