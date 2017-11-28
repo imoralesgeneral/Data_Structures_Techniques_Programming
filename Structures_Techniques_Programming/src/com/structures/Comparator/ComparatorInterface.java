@@ -10,28 +10,28 @@ public interface ComparatorInterface<T> {
 	public static int GREATER = 1;
 
 	/**
-	* Compare 2 values
+	* It compares 2 values
 	* @param e1 value 1; e2 value 2
 	* @return the result produced by comparison: LESS, EQUAL, GREATER
 	*/
 	public int compare(T e1, T e2);
 
 	/**
-	* Analyze if any value is less
+	* It analyzes if any value is less
 	* @param e1 value 1; e2 value 2
 	* @return the result produced by comparison is true or false
 	*/
 	public boolean isLess(T e1, T e2);
 
 	/**
-	* Analyze if both values are equal
+	* It analyzes if both values are equal
 	* @param e1 value 1; e2 value 2
 	* @return the result produced by comparison is true or false
 	*/
 	public boolean isEqual(T e1, T e2);
 
 	/**
-	* Analyze if any value is greater
+	* It analyzes if any value is greater
 	* @param e1 value 1; e2 value 2
 	* @return the result produced by comparison is true or false
 	*/
