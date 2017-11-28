@@ -38,5 +38,11 @@ public class ListIterator<T> implements IteratorInterface<T>{
 	{
 		return !handler.isEmpty ();
 	}
-	
+
+	@Override
+	public void reset() {
+		handler = restart;
+	}
+
+
 }

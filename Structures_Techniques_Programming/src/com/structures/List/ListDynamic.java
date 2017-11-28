@@ -1,19 +1,28 @@
 package com.structures.List;
 
+import com.structures.Comparator.ComparatorInterface;
+import com.structures.Iterator.IteratorInterface;
+import com.structures.Iterator.ListIterator;
+
 public class ListDynamic<T> implements ListInterface<T> {
 
 	private T first;
-    private ListIF<T> tail;
+    private ListInterface<T> tail;
     
-    
-    public ListDynamic ()
+    /**
+	* Constructor for ListDynamic.
+	*/
+    public ListDynamic()
     {
         first = null;
         tail = null;
     }
     
-    
-    public ListDynamic (ListIF<T> list)
+    /**
+	* Constructor for ListDynamic.
+	* @param list.
+	*/
+    public ListDynamic (ListInterface<T> list)
     {
         this ();
         if (list != null)
@@ -31,14 +40,14 @@ public class ListDynamic<T> implements ListInterface<T> {
     
     
     @Override
-    public ListIF<T> getTail (){
+    public ListInterface<T> getTail (){
         if (isEmpty ()) return this;
             return tail;
     }
     
     
     @Override
-    public ListIF<T> insert (T element) {
+    public ListInterface<T> insert (T element) {
         if (element != null) {
             ListDynamic<T> next = new ListDynamic<T>();
             next.first = first;
@@ -72,17 +81,13 @@ public class ListDynamic<T> implements ListInterface<T> {
     
     
     @Override
-    public IteratorIF<T> getIterator ()
+    public IteratorInterface<T> getIterator ()
     {
-        ListIF<T> handler = new ListDynamic<T> (this);
+    	ListInterface<T> handler = new ListDynamic<T> (this);
         return new ListIterator<T> (handler);
     }
     
-    /**
-    * Devuelve cierto si la lista contiene el elemento.
-    * @param element El elemento buscado.
-    * @return cierto si la lista contiene el elemento.
-    */
+
     @Override
     public boolean contains (T element){
         if (isEmpty ()) 
@@ -90,26 +95,22 @@ public class ListDynamic<T> implements ListInterface<T> {
         return first.equals (element) || tail.contains (element);
     }
 
-    /**
-	* Ordena los elementos de la lista.
-	* @param comparator El comparador de elementos.
-	* @return la lista ordenada.
-	*/
+    
 	@Override
-	public ListIF<T> sort (ComparatorIF<T> comparator){
+	public ListInterface<T> sort (ComparatorInterface<T> comparator){
 		if (isEmpty ()) 
 			return this;
 		else 
-			return ((ListDynamic<T>) tail.sort (comparator)).sortInsert (first, comparator);
+			return ((ListDynamic<T>)tail.sort(comparator)).sortInsert(first, comparator);
 	}
    
     /**
-    * Inserta un elemento en orden en una lista ordenada.
-    * @param element El elemento a insertar
-    * @param comparator El comparador de elementos.
-    * @return la lista ordenada.
+    * Insert an element in a ordered way.
+    * @param element
+    * @param comparator
+    * @return a ordered list.
     */
-    private ListIF<T> sortInsert (T element, ComparatorIF<T> comparator){
+    private ListInterface<T> sortInsert (T element, ComparatorInterface<T> comparator){
         if (isEmpty ()) 
             return this.insert (element);
         else if (comparator.isLess (element, first))
@@ -117,6 +118,7 @@ public class ListDynamic<T> implements ListInterface<T> {
         else 
             return ((ListDynamic<T>) tail).sortInsert (element, comparator).insert (first);
     }
+    
     public int hashcode () {
         return 31 * ((first == null) ? 0 : first.hashCode ())
                 +((tail == null) ? 0 : tail.hashCode ());
@@ -141,7 +143,7 @@ public class ListDynamic<T> implements ListInterface<T> {
     {
         StringBuffer buff = new StringBuffer ();
         buff.append ("ListDynamic -[");
-        IteratorIF<T> listIt = getIterator ();
+        IteratorInterface<T> listIt = getIterator();
         while (listIt.hasNext ()) {
             T element = listIt.getNext ();
             buff.append (element);
@@ -152,19 +154,27 @@ public class ListDynamic<T> implements ListInterface<T> {
         return buff.toString ();
     }
     
-    public ListIF<T> invertir (){
-        // Caso base
+    /**
+     * It inverts the list.
+     * @return an inverted list .
+     */
+    public ListInterface<T> invert (){
+        // Case 0
         if (isEmpty())
             return this;
-        // Se inserta el primer elemento    
-        ListIF<T> inv = new ListDynamic<T>();
+        // Insert first element   
+        ListInterface<T> inv = new ListDynamic<T>();
         inv = inv.insert(getFirst());
-        // Hacemos la inversa de la cola
+        // Invert queue
         inv = ((ListDynamic<T>) getTail()).invAux(inv);
-        
         return inv;         
     }
-    public ListIF<T> invAux(ListIF<T> _inv){
+    
+    /**
+     * It inverts another list.
+     * @return an inverted list .
+     */
+    public ListInterface<T> invAux(ListInterface<T> _inv){
         if (!isEmpty()){
             _inv = _inv.insert(getFirst());
             _inv = ((ListDynamic<T>) getTail()).invAux(_inv);

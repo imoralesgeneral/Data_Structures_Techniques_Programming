@@ -1,5 +1,8 @@
 package com.structures.List;
 
+import com.structures.Comparator.ComparatorInterface;
+import com.structures.Iterator.IteratorInterface;
+
 public interface ListInterface<T> {
 
 	/**
@@ -12,14 +15,14 @@ public interface ListInterface<T> {
 	* Return the list except the first element.
 	* @return the list except the first element.
 	*/
-	public ListIF<T> getTail ();
+	public ListInterface<T> getTail ();
 	
 	/**
 	* Insert a new element into the list.
 	* @param element.
 	* @return a list including the element.
 	*/
-	public ListIF<T> insert (T element);
+	public ListInterface<T> insert (T element);
 	
 	/**
 	* Check if the list is empty.
@@ -43,7 +46,7 @@ public interface ListInterface<T> {
 	* Return an iterator.
 	* @return An iterator for the list.
 	*/
-	public IteratorIF<T> getIterator ();
+	public IteratorInterface<T> getIterator ();
 	
 	/**
 	* Check if the list contains the element.
@@ -57,6 +60,6 @@ public interface ListInterface<T> {
 	* @param comparator.
 	* @return ordered list.
 	*/
-	public ListIF<T> sort (ComparatorIF<T> comparator);
+	public ListInterface<T> sort (ComparatorInterface<T> comparator);
 	
 }
