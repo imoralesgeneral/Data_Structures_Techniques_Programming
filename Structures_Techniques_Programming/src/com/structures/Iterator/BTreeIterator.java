@@ -2,13 +2,13 @@ package com.structures.Iterator;
 
 import com.structures.Tree.BTreeInterface;
 
-public class BTreeIterator<T> {
+public class BTreeIterator<T> implements IteratorInterface<T>{
 	
 	// instance variables
     private IteratorInterface<T> iterator;
 
     /**
-     * Constructor for objects of class TreeIterator
+     * Constructor for objects of class BTreeIterator
      */
     public BTreeIterator(BTreeInterface<T> handler, int type)
     {
@@ -40,7 +40,6 @@ public class BTreeIterator<T> {
 	*/
     public T getNext()
     {
-        // put your code here
         return iterator.getNext();
     }
 
@@ -61,7 +60,10 @@ public class BTreeIterator<T> {
         iterator.reset();
     }
 
-    
+    /**
+	* It iterates in preorder way.
+	* @param tree.
+	*/
     private QueueInterface<T> preorder(BTreeInterface<T> tree)
     {
     	QueueInterface<T> traverse = new QueueDynamic<T>();
@@ -78,7 +80,11 @@ public class BTreeIterator<T> {
         addAll(traverse, rTraverse);
         return traverse;
     }
-
+    
+    /**
+   	* It iterates in inorder way.
+   	* @param tree.
+   	*/
     private QueueInterface<T> inorder(BTreeInterface<T> tree)
     {
     	QueueInterface<T> traverse = new QueueDynamic<T>();
@@ -96,6 +102,10 @@ public class BTreeIterator<T> {
         return traverse;
     }
 
+    /**
+   	* It iterates in postorder way.
+   	* @param tree.
+   	*/
     private QueueInterface<T> postorder(BTreeInterface<T> tree)
     {
     	QueueInterface<T> traverse = new QueueDynamic<T>();
@@ -148,7 +158,11 @@ public class BTreeIterator<T> {
         }
         return traverse;
     }
-
+    
+    /**
+   	* Add all elements of p in q.
+   	* @param q; p.
+   	*/
     private void addAll(QueueInterface<T> q, QueueInterface<T> p)
     {
         while(!p.isEmpty()) {

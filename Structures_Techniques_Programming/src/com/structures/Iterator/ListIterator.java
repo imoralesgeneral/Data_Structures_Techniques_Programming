@@ -2,7 +2,7 @@ package com.structures.Iterator;
 
 import com.structures.List.ListInterface;
 
-public class ListIterator<T> {
+public class ListIterator<T> implements IteratorInterface<T>{
 
 	private ListInterface<T> handler;
 	private ListInterface<T> restart;
