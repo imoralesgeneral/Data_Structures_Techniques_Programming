@@ -1,26 +1,32 @@
 package com.structures.Iterator;
 
+import com.structures.Queue.QueueDynamic;
+import com.structures.Queue.QueueInterface;
+import com.structures.Stack.StackDynamic;
+import com.structures.Stack.StackInterface;
+import com.structures.Tree.TreeInterface;
+
 public class TreeIterator<T> implements IteratorInterface<T> {
 
-	private IteratorIF<T> iterator;
+	private IteratorInterface<T> iterator;
 
     /**
      * Constructor for objects of class TreeIterator
      */
-    public TreeIterator(TreeIF<T> handler, int type)
+    public TreeIterator(TreeInterface<T> handler, int type)
     {
-        QueueIF<T> traverse = null;
+        QueueInterface<T> traverse = null;
         switch(type) {
-            case TreeIF.PREORDER:
+            case TreeInterface.PREORDER:
             traverse = preorder (handler);
             break;
-            case TreeIF.POSTORDER:
+            case TreeInterface.POSTORDER:
             traverse = postorder (handler);
             break;
-            case TreeIF.LRBREADTH:
+            case TreeInterface.LRBREADTH:
             traverse = lrBreadth (handler);
             break;
-            case TreeIF.RLBREADTH:
+            case TreeInterface.RLBREADTH:
             traverse = rlBreadth (handler);
             break;
         }
@@ -58,15 +64,15 @@ public class TreeIterator<T> implements IteratorInterface<T> {
 	* It iterates in preorder way.
 	* @param tree.
 	*/
-    private QueueIF<T> preorder(TreeIF<T> tree)
+    private QueueInterface<T> preorder(TreeInterface<T> tree)
     {
-        QueueIF<T> traverse = new QueueDynamic<T>();
+        QueueInterface<T> traverse = new QueueDynamic<T>();
         T elem = tree.getRoot();
         traverse.add(elem);
-        IteratorIF <TreeIF<T>> childrenIt = tree.getChildren().getIterator();
+        IteratorInterface <TreeInterface<T>> childrenIt = tree.getChildren().getIterator();
         while(childrenIt.hasNext()){
-            TreeIF<T> aChild = childrenIt.getNext();
-            QueueIF<T> aTraverse = preorder(aChild);
+            TreeInterface<T> aChild = childrenIt.getNext();
+            QueueInterface<T> aTraverse = preorder(aChild);
             addAll(traverse, aTraverse);
         }
         return traverse;
@@ -76,32 +82,32 @@ public class TreeIterator<T> implements IteratorInterface<T> {
    	* It iterates in postorder way.
    	* @param tree.
    	*/
-    private QueueIF<T> postorder(TreeIF<T> tree)
+    private QueueInterface<T> postorder(TreeInterface<T> tree)
     {
-        QueueIF<T> traverse = new QueueDynamic<T>();
+        QueueInterface<T> traverse = new QueueDynamic<T>();
         T elem = tree.getRoot();
-        IteratorIF <TreeIF<T>> childrenIt = tree.getChildren().getIterator();
+        IteratorInterface <TreeInterface<T>> childrenIt = tree.getChildren().getIterator();
         while(childrenIt.hasNext()){
-            TreeIF<T> aChild = childrenIt.getNext();
-            QueueIF<T> aTraverse = postorder(aChild);
+            TreeInterface<T> aChild = childrenIt.getNext();
+            QueueInterface<T> aTraverse = postorder(aChild);
             addAll(traverse, aTraverse);
         }
         traverse.add(elem);
         return traverse;
     }
 
-    private QueueIF<T> lrBreadth(TreeIF<T> tree)
+    private QueueInterface<T> lrBreadth(TreeInterface<T> tree)
     {
-        QueueIF<T> traverse = new QueueDynamic<T>();
-        QueueIF<TreeIF<T>> aux = new QueueDynamic<TreeIF<T>>();
+        QueueInterface<T> traverse = new QueueDynamic<T>();
+        QueueInterface<TreeInterface<T>> aux = new QueueDynamic<TreeInterface<T>>();
 
         aux.add(tree);
         while(!aux.isEmpty()) {
-            TreeIF<T> aTree = aux.getFirst();
+            TreeInterface<T> aTree = aux.getFirst();
             T elem = aTree.getRoot();
-            IteratorIF <TreeIF<T>> childrenIt = tree.getChildren().getIterator();
+            IteratorInterface <TreeInterface<T>> childrenIt = tree.getChildren().getIterator();
             while(childrenIt.hasNext()){
-                TreeIF<T> aChild = childrenIt.getNext();
+                TreeInterface<T> aChild = childrenIt.getNext();
                 aux.add(aChild);
             }
             traverse.add(elem);
@@ -110,10 +116,10 @@ public class TreeIterator<T> implements IteratorInterface<T> {
         return traverse;
     }
 
-    private QueueIF<T> rlBreadth(TreeIF<T> tree)
+    private QueueInterface<T> rlBreadth(TreeInterface<T> tree)
     {
-        QueueIF<T> traverse = lrBreadth(tree);
-        StackIF<T> aux = new StackDynamic<T>();
+        QueueInterface<T> traverse = lrBreadth(tree);
+        StackInterface<T> aux = new StackDynamic<T>();
         while(!traverse.isEmpty()) {
             T elem = traverse.getFirst();
             aux.push(elem);
@@ -131,7 +137,7 @@ public class TreeIterator<T> implements IteratorInterface<T> {
    	* Add all elements of p in q.
    	* @param q; p.
    	*/
-    private void addAll(QueueIF<T> q, QueueIF<T> p)
+    private void addAll(QueueInterface<T> q, QueueInterface<T> p)
     {
         while(!p.isEmpty()) {
             T elem = p.getFirst();

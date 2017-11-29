@@ -1,5 +1,9 @@
 package com.structures.Iterator;
 
+import com.structures.Queue.QueueDynamic;
+import com.structures.Queue.QueueInterface;
+import com.structures.Stack.StackDynamic;
+import com.structures.Stack.StackInterface;
 import com.structures.Tree.BTreeInterface;
 
 public class BTreeIterator<T> implements IteratorInterface<T>{
@@ -123,6 +127,10 @@ public class BTreeIterator<T> implements IteratorInterface<T>{
         return traverse;
     }
 
+    /**
+   	* It iterates in Breadth First Search way.
+   	* @param tree.
+   	*/
     private QueueInterface<T> lrBreadth(BTreeInterface<T> tree)
     {
     	QueueInterface<T> traverse = new QueueDynamic<T>();
@@ -142,6 +150,10 @@ public class BTreeIterator<T> implements IteratorInterface<T>{
         return traverse;
     }
 
+    /**
+   	* It iterates in inverse Breadth First Search way.
+   	* @param tree.
+   	*/
     private QueueInterface<T> rlBreadth(BTreeInterface<T> tree)
     {
     	QueueInterface<T> traverse = lrBreadth(tree);
