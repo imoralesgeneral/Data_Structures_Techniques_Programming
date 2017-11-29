@@ -1,15 +1,18 @@
 package com.structures.Iterator;
 
+import com.structures.Queue.QueueDynamic;
+import com.structures.Queue.QueueInterface;
+
 public class QueueIterator<T> implements IteratorInterface<T>{
 	
-	private QueueIF<T> handler;
-	private QueueIF<T> restart;
+	private QueueInterface<T> handler;
+	private QueueInterface<T> restart;
 	
 	/**
 	* Constructor for objects of class QueueIterator.
 	* @param handler manager of queue.
 	*/
-	public QueueIterator (QueueIF<T> handler)
+	public QueueIterator (QueueInterface<T> handler)
 	{
 		this.handler = handler;
 		this.restart = new QueueDynamic<T> (handler);
