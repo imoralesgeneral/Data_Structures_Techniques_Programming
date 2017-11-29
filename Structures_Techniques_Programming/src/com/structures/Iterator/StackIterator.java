@@ -1,15 +1,18 @@
 package com.structures.Iterator;
 
+import com.structures.Stack.StackDynamic;
+import com.structures.Stack.StackInterface;
+
 public class StackIterator<T> implements IteratorInterface<T> {
 
-	private StackIF<T> handler;
-	private StackIF<T> restart;
+	private StackInterface<T> handler;
+	private StackInterface<T> restart;
 	
 	/**
 	* Constructor for objects of class StackIterator.
 	* @param handler manager of stacks.
 	*/
-	public StackIterator (StackIF<T> handler){
+	public StackIterator (StackInterface<T> handler){
 		this.handler = handler;
 		this.restart = new StackDynamic<T> (handler);
 	}
