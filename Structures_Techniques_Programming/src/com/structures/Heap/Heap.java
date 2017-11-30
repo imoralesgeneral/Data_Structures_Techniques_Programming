@@ -1,5 +1,7 @@
 package com.structures.Heap;
 
+import com.structures.Comparator.ComparatorHeap;
+
 public class Heap<T> implements HeapInterface<T> {
 
 	private T[] V;
@@ -45,8 +47,9 @@ public class Heap<T> implements HeapInterface<T> {
 
 	@Override
 	public void shiftUp(int i) {
+		ComparatorHeap ch = new ComparatorHeap();
 		int father = i/2;
-		while(i > 1 && (V[father] < V[i])) //// CREAR COMPARATOR
+		while(i > 1 && (ch.isGreater(V[i], V[father])))//V[father] < V[i])) //// CREAR COMPARATOR
         {
             exchange(i, father);
             i = i / 2;
@@ -56,17 +59,18 @@ public class Heap<T> implements HeapInterface<T> {
 
 	@Override
 	public void shiftDown(int i) {
+		ComparatorHeap ch = new ComparatorHeap();
 		int hi = 2*i;
         int hd = 2*i+1;
         int p = i;
         do {
             if(hi <= c && hd <= c)
             {
-                if((hi <= max) && (V[hd] > V[i]))
+                if((hi <= max) && (ch.isGreater(V[hd], V[i])))
                 {
                     i = hd;
                 }
-                if((hi <= max) && (V[hi] > V[i]))
+                if((hi <= max) && (ch.isGreater(V[hi], V[i])))
                 {
                     i = hi;
                 }
