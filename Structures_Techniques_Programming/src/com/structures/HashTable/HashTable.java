@@ -60,9 +60,9 @@ public class HashTable<T> implements HashTableInterface<T>{
 				aux_one.insert(aux_two);
 			}
 		}
+		v[code] = null;
 		v[code] = aux_one;
 	}
-
 }
 
 class Contenedor<T> {
