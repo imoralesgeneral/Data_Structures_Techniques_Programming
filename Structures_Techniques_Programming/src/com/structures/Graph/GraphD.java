@@ -84,4 +84,20 @@ public class GraphD extends GraphInterface{
 		return eArray[v];
 	}
 
+	@Override
+	public void deleteEdge(int v1, int v2) {
+		// TODO Auto-generated method stub
+		ListDynamic<Adjacent> l = eArray[v1];
+		ListDynamic<Adjacent> l_aux = new ListDynamic<Adjacent>();
+		ListIterator li = (ListIterator) l.getIterator();
+		while(li.hasNext()) {
+			Adjacent ad = (Adjacent) li.getNext();
+			if(ad.dest != v2) {
+				l_aux.insert(ad);
+			} else {
+				numE--;
+			}
+		}
+	}
+
 }

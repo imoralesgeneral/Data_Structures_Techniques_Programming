@@ -57,6 +57,13 @@ public abstract class GraphInterface {
 	public abstract void insertEdgeP(int v1, int v2, double w);
 	
 	/**
+	* Delete an edge belongs the graph.
+	* @param an origin vertex.
+	* @param an destiny vertex.
+	*/
+	public abstract void deleteEdge(int v1, int v2);
+	
+	/**
 	* Return a list with v's adj.
 	* @param a vertex.
 	* @return  a list with v's adj.
