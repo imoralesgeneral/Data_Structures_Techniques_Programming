@@ -1,6 +1,6 @@
 package com.structures.HashTable;
 
-public interface HashTableInterface<T> {
+public interface HashTableInterface<T, V> {
 	
 	/**
 	* Calculate code to insert an element into the HashTable.
@@ -13,7 +13,7 @@ public interface HashTableInterface<T> {
 	* @param key.
 	* @param value.
 	*/
-	public void insert(T key, T value);
+	public void insert(T key, V value);
 	
 	/**
 	* Find the element which has that key.
