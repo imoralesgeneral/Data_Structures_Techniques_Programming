@@ -1,9 +1,7 @@
 package com.structures.TestList;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import com.structures.List.ListDynamic;
 import com.structures.List.ListInterface;
 import com.structures.List.ListStatic;
@@ -93,6 +91,15 @@ public class TestListStatic {
 		assertEquals(true, testSt.contains(3));
 	}
 
+	@Test
+    public void testInvert(){
+		testSt.insert(3);
+		testSt.insert(5);
+		testSt.insert(6);
+		ListStatic<Integer> test = new ListStatic<Integer>(testSt.invert());
+		assertEquals((Integer)3, test.getFirst());
+    }
+	
 	/*@Test
 	public void testSort() {
 		fail("Not yet implemented"); // TODO

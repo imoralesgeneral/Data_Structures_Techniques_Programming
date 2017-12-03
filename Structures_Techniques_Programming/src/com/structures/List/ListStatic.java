@@ -114,6 +114,20 @@ public class ListStatic<T> implements ListInterface<T>
      return true;//   
     }
     
+    /**
+     * It inverts the list.
+     * @return an inverted list .
+     */
+    public ListInterface<T> invert (){
+        // Case 0
+        if (isEmpty())
+            return this;
+        // Insert first element   
+        ListDynamic<T> inv = new ListDynamic<T>(this);
+        ListStatic<T> inv_ = new ListStatic<T>(inv.invert());
+        return inv_;         
+    }
+    
     @Override
     public ListInterface<T> sort (ComparatorInterface<T> comparator)
     {

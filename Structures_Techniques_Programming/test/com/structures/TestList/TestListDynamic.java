@@ -1,13 +1,10 @@
 package com.structures.TestList;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
-import com.structures.Comparator.ComparatorHeap;
 import com.structures.List.ListDynamic;
 import com.structures.List.ListInterface;
-import com.structures.List.ListStatic;
+
 
 public class TestListDynamic {
 	
