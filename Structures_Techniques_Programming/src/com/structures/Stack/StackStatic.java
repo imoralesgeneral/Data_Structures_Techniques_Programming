@@ -116,11 +116,11 @@ public class StackStatic<T> implements StackInterface<T>
     @Override
     public boolean contains (T elem)
     {
-        IteratorInterface<T> stackIt = this.getIterator();
         boolean found = false;
-        while(!found && stackIt.hasNext()) {
-            T anElement = stackIt.getNext();
-            found = anElement.equals(elem);
+        int index = top;
+        while(!found && index>=0) {
+            found = elements[index].equals(elem);
+            index--;
         }
         return found;
     }
