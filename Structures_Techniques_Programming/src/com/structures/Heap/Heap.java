@@ -1,10 +1,12 @@
 package com.structures.Heap;
 
+import java.util.Arrays;
+
 import com.structures.Comparator.ComparatorHeap;
 
 public class Heap<T> implements HeapInterface<T> {
 
-	private T[] V;
+	private Object[] V;
 	private int c;
 	private int max;
 	
@@ -20,7 +22,7 @@ public class Heap<T> implements HeapInterface<T> {
 	* @param n Max size.
 	*/
 	public Heap(int n) {
-		this.V = null;
+		this.V = new Object[n+1];
 		this.c = 0;
 		this.max = n;
 	}
@@ -28,12 +30,13 @@ public class Heap<T> implements HeapInterface<T> {
 	/**
 	* Constructor for Heap.
 	* @param n Max size.
-	* @param V T[].
+	* @param V Object[].
 	*/
-	public Heap(int n, T[] V) {
-		this.V = V;
-		this.c = V.length-1;
-		this.max = n;
+	public Heap(Object[] V) {
+		this.V = new Object[V.length+1];
+		this.c = 0;
+		this.max = V.length+1;
+		insertV(V);
 	}
     
 	@Override
@@ -89,7 +92,7 @@ public class Heap<T> implements HeapInterface<T> {
         {
             //ERROR  HEAP IS FULL
         } else {
-            c = c+1;
+            c++;
             V[c] = element;
             shiftUp(c);
         }		
@@ -97,29 +100,30 @@ public class Heap<T> implements HeapInterface<T> {
 
 	@Override
 	public T getTop() {
-		T element = null;
+		Object element = null;
         if(c != 0)
         {
-        	element = V[1];
+        	Arrays.toString(V);
+        	element = (T) V[1];
             V[1] = null;
             exchange(1,c);
             //V[1] = V[c];
             c = c-1;
-            shiftDown(1);
+            shiftDown(1);        
         }
-        return element;	
+        return (T) element;	
 	}
 
 	@Override
 	public T getFirst() {
-		T first = null;
+		Object first = null;
         if(c == 0)
         {
             // dev ERROR
         } else {
         	first = V[1];
         }
-        return first;	
+        return (T) first;	
 	}
 	
 	/**
@@ -127,28 +131,39 @@ public class Heap<T> implements HeapInterface<T> {
 	* @param e index first element.
 	* @param i index second element.
 	*/
-	public void exchange(int e, int i) {
-		T aux_one = V[e];
-        T aux_two = V[i];
+	private void exchange(int e, int i) {
+		T aux_one = (T)V[e];
+        T aux_two = (T)V[i];
         V[e] = aux_two;
         V[i] = aux_one;
 	}
 	
 	/**
-	* Exchange two elements
-	* @param e index first element.
-	* @param i index second element.
+	* Sorting
+	* @param v Vector to sort.
 	*/
-	public T[] Heapsort(T[] t, int max)
+	public Object[] Heapsort(T[] t)
     {
         T e = null;
-        T[] s = null;
-        Heap aux = new Heap(max, t);
-        for(int i=1; i< t.length; i++)
-        {
-            e = (T) aux.getTop();
-            s[i] = e;
-        }        
+        Object[] s = new Object[t.length];
+        Heap aux = new Heap(t);
+        int indice = 0;
+        while(!aux.isEmpty()) {
+			Object aux_ = aux.getTop();
+			s[indice] = aux_;
+			indice++;
+		}       
         return s;
     }
+	
+	private void insertV(Object[] v)
+	{
+		int len = v.length;
+		for(int i=1; i<=len; i++)
+		{
+			T aux = (T) v[i-1];
+			this.insert(aux);
+		}
+	}
+	
 }

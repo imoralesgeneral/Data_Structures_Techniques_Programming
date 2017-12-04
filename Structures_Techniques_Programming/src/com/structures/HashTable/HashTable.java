@@ -47,6 +47,13 @@ public class HashTable<T, V> implements HashTableInterface<T, V>{
 		}
 		return contenedor;
 	}
+	
+	public boolean contains(T key) {
+		boolean sol = false;
+		T contenedor = find(key);
+		if(contenedor != null) sol = true;
+		return sol;
+	}
 
 	@Override
 	public void delete(T key) {
