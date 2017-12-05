@@ -59,7 +59,7 @@ public class Heap<T> implements HeapInterface<T> {
             father = i / 2;
         }
 	}
-
+	int z = 1;
 	@Override
 	public void shiftDown(int i) {
 		ComparatorHeap ch = new ComparatorHeap();
@@ -69,7 +69,10 @@ public class Heap<T> implements HeapInterface<T> {
         do {
             if(hi <= c && hd <= c)
             {
-                if((hi <= max) && (ch.isGreater(V[hd], V[i])))
+            	
+            	System.out.println(z+". hi: "+hi+" hd: "+hd+" p: "+p+" i: "+i);
+            	z++;
+                if((hd <= max) && (ch.isGreater(V[hd], V[i])))
                 {
                     i = hd;
                 }
@@ -82,6 +85,7 @@ public class Heap<T> implements HeapInterface<T> {
                 hd = 2*i+1;
                 p = i;
                 i = i*2;
+               
             }
         } while (p != i && i < c);
     }
@@ -101,14 +105,14 @@ public class Heap<T> implements HeapInterface<T> {
 	@Override
 	public T getTop() {
 		Object element = null;
+		ComparatorHeap cp = new ComparatorHeap();
         if(c != 0)
         {
-        	Arrays.toString(V);
         	element = (T) V[1];
             V[1] = null;
             exchange(1,c);
             //V[1] = V[c];
-            c = c-1;
+            c--;
             shiftDown(1);        
         }
         return (T) element;	
@@ -153,6 +157,7 @@ public class Heap<T> implements HeapInterface<T> {
 			s[indice] = aux_;
 			indice++;
 		}       
+        System.out.println(Arrays.toString(s));
         return s;
     }
 	

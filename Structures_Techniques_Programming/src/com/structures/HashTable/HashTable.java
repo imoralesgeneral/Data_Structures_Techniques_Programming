@@ -5,7 +5,7 @@ import com.structures.List.ListDynamic;
 
 public class HashTable<T, V> implements HashTableInterface<T, V>{
 
-	private ListDynamic<T>[] v;
+	private ListDynamic<Contenedor>[] v;
 	private int size;
 	
 	public HashTable()
@@ -22,14 +22,20 @@ public class HashTable<T, V> implements HashTableInterface<T, V>{
 	
 	@Override
 	public int calculateCode(Object key) {
-		return key.hashCode()%size;
+		int sol = key.hashCode()%size;
+		if(sol<0) sol *= -1;
+		return sol;
 	}
 
 	@Override
 	public void insert(T key, V value) {
+		if(contains(key)) return;
 		int code = calculateCode(key);
-		Contenedor contenedor = new Contenedor(key, value);
-		v[code].insert((T) contenedor);
+		Contenedor<T,V> contenedor = new Contenedor<T,V>(key, value);
+		if(v[code] == null) {
+			v[code] = new ListDynamic<Contenedor>();
+		}
+		v[code].insert(contenedor);
 	}
 
 	@Override

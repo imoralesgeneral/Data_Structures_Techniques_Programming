@@ -3,6 +3,7 @@ package com.structures.TestHeap;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -126,9 +127,18 @@ public class TestHeap {
 		vec[2] = 9;
 		vec[3] = 7;
 		vec[4] = 4;
-		Object[] v2 = h.Heapsort(vec);
-		assertEquals(9, v2[0]);	
-		assertEquals(4, v2[3]);
+		//Object[] v2 = h.Heapsort(vec);
+		//assertEquals(9, v2[0]);	
+		//assertEquals(4, v2[3]);
+		Integer[] vec3 = new Integer[30];
+		Random r = new Random();
+		for(int i=0; i<30; i++)
+		{
+			vec3[i] = r.nextInt(30);
+		}
+		System.out.println(Arrays.toString(vec3));
+		Object[] v3 = h.Heapsort(vec3);
+		
 	}
 
 }
