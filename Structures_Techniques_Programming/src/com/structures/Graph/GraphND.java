@@ -4,6 +4,8 @@ import com.structures.Iterator.ListIterator;
 import com.structures.List.ListDynamic;
 
 public class GraphND extends GraphD{
+	
+	/* It cannot insert edges to the same vertex */
 
 	public GraphND(int num_vert) {
 		super(num_vert);
@@ -23,6 +25,10 @@ public class GraphND extends GraphD{
 		}
 		numE++;
 	}
+	
+	public void insertEdge(int v1, int v2) {
+		insertEdge(v1, v2, 1);
+	}
 
 	/**
 	* Delete an edge belongs the graph.
@@ -41,14 +47,14 @@ public class GraphND extends GraphD{
 			} else {
 				numE--;
 			}
-		}
-		eArray[v2] = l_aux;
-		ListDynamic<Adjacent> l2 = eArray[v1];
+		}	
+		eArray[v1] = l_aux;
+		ListDynamic<Adjacent> l2 = eArray[v2];
 		ListDynamic<Adjacent> l2_aux = new ListDynamic<Adjacent>();
 		ListIterator li2 = (ListIterator) l2.getIterator();
 		while(li2.hasNext()) {
 			Adjacent ad = (Adjacent) li2.getNext();
-			if(ad.dest != v2) {
+			if(ad.dest != v1) {
 				l2_aux.insert(ad);
 			} else {
 				numE--;

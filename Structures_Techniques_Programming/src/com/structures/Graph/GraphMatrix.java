@@ -9,9 +9,9 @@ public class GraphMatrix {
 		this.n = n;
 		matrix = new double[this.n][this.n];
         //Initial matrix 
-        for(int i=0; i< n; i++){
-            for(int j=0; j< n; j++){
-            	matrix[i][j] = 0;
+        for(int i=1; i<= n; i++){
+            for(int j=1; j<= n; j++){
+            	matrix[i-1][j-1] = 0;
             }            
         }
 	}
@@ -36,9 +36,9 @@ public class GraphMatrix {
 	*/
 	public int numEdges() {
 		int num = 0;
-		for(int i=0; i< n; i++){
-            for(int j=0; j< n; j++){
-            	if(matrix[i][j] != 0) num++;
+		for(int i=1; i<= n; i++){
+            for(int j=1; j<= n; j++){
+            	if(matrix[i-1][j-1] != 0) num++;
             }
 		}
 		return num;
@@ -51,7 +51,7 @@ public class GraphMatrix {
 	* @return true if edge exists.
 	*/
 	public boolean existsEdge(int v1, int v2) {
-		return (matrix[v1][v2] != 0);
+		return (matrix[v1-1][v2-1] != 0);
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class GraphMatrix {
 	* @return  weight between both vertex.
 	*/
 	public double weightEdge(int v1, int v2) {
-		return matrix[v1][v2];
+		return matrix[v1-1][v2-1];
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class GraphMatrix {
 	* @return a graph including the new edge.
 	*/
 	public void insertEdgeP(int v1, int v2, double w) {
-		matrix[v1][v2] = w;
+		matrix[v1-1][v2-1] = w;
 	}
 	
 	/**
@@ -91,16 +91,16 @@ public class GraphMatrix {
 	* @param an destiny vertex.
 	*/
 	public void deleteEdge(int v1, int v2) {
-		matrix[v1][v2] = 0;
+		matrix[v1-1][v2-1] = 0;
 	}
 	
 	/**
 	 * Print matrix
 	 */
 	public void printMatrix(){
-        for(int i=0; i< n; i++){
-            for(int j=0; j< n; j++){
-                System.out.print( matrix[i][j] + "  " );        
+		for(int i=1; i<= n; i++){
+            for(int j=1; j<= n; j++){
+                System.out.print( matrix[i-1][j-1] + "  " );        
             }
             System.out.println();
         }  
