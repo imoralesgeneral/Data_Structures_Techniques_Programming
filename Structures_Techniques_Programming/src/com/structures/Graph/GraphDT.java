@@ -8,9 +8,6 @@ public class GraphDT<T> extends GraphD{
 	
 	T tags[];
 	HashTable<T, Integer> dic;
-	
-	/* Firstly, you have to tag vertex */
-	/* Code is the position of vertex */
 
 	public GraphDT(int num_vert) {
 		super(num_vert);
@@ -37,9 +34,9 @@ public class GraphDT<T> extends GraphD{
 		insertEdgeP(obtainCode(i), obtainCode(j), w);
 	}
 	
-	/*public void deleteEdge(T i, T j) {
+	public void deleteEdge(T i, T j) {
 		deleteEdge(obtainCode(i), obtainCode(j));
-	}*/
+	}
 	
 	public ListDynamic<Adjacent> adj(T i) {
 		// TODO Auto-generated method stub

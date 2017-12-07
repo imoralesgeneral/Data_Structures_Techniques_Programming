@@ -4,96 +4,111 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.structures.Graph.GraphDT;
-
 public class TestGraphDT {
 
-	GraphDT<String> g = new GraphDT<String>(5);
-	
-	public TestGraphDT() {
-	g.tagVertex(1, "yo1");
-	g.tagVertex(2, "yo2");
-	g.tagVertex(3, "yo3");
-	g.insertEdge("yo1", "yo2");
-	g.insertEdge("yo2", "yo3");
-	}
 	@Test
 	public void testGraphDT() {
-		assertNotNull(g);
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testExistsEdgeTT() {
-		
-		
-		
-		assertEquals(true, g.existsEdge("yo2","yo3"));
-		assertEquals(false, g.existsEdge("yo3","yo2"));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testWeightEdgeTT() {
-		g.insertEdgeP("yo3", "yo2", 3);
-		assertEquals(3, g.weightEdge("yo3","yo2"), 0.1);
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testInsertEdgeTT() {
-		assertEquals(true, g.existsEdge("yo2","yo3"));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testInsertEdgePTTDouble() {
-		g.insertEdgeP("yo3", "yo2", 3);
-		assertEquals(true, g.existsEdge("yo3","yo2"));
+		fail("Not yet implemented");
 	}
 
-/*	@Test
+	@Test
 	public void testDeleteEdgeTT() {
-		g.deleteEdge("yo2", "yo3");
-		assertEquals(false, g.existsEdge("yo2","yo3"));
-	}*/
-/*
+		fail("Not yet implemented");
+	}
+
 	@Test
 	public void testAdjT() {
 		fail("Not yet implemented");
 	}
-*/
-	
+
 	@Test
 	public void testTagVertex() {
-		g.tagVertex(4, "yo4");
-		assertNotNull(g.getTag(4));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetTag() {
-		g.tagVertex(4, "yo4");
-		assertNotNull(g.getTag(4));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testObtainCode() {
-		g.tagVertex(4, "yo4");
-		assertEquals(4, g.obtainCode("yo4"));
-		assertEquals(-1, g.obtainCode("yo6"));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testNumVertex() {
-		assertEquals(5, g.numVertex());
+		fail("Not yet implemented");
 	}
 
-	/*@Test
+	@Test
 	public void testInsertVertex() {
 		fail("Not yet implemented");
-	}*/
+	}
 
 	@Test
 	public void testNumEdges() {
-		g.insertEdge(1, 2);
-		g.insertEdge(2, 3);
-		assertEquals(2, g.numEdges());
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testExistsEdgeIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testWeightEdgeIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testInsertEdgeIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testInsertEdgePIntIntDouble() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteEdgeIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAdjInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGraphD() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testToString() {
+		fail("Not yet implemented");
 	}
 
 }

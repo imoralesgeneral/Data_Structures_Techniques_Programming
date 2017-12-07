@@ -3,68 +3,71 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.structures.Graph.GraphND;
-
 public class TestGraphND {
-	
-GraphND g = new GraphND(5);
-	
-	public TestGraphND() {
-	g.insertEdge(1, 2, 0.5);
-	g.insertEdge(2, 3, 0.6);
-	g.insertEdge(5, 3, 0.7);
+
+	@Test
+	public void testDeleteEdge() {
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGraphND() {
-		assertNotNull(g);
+		fail("Not yet implemented");
 	}
-	
+
 	@Test
-	public void testInsertEdge() {
-		g.insertEdge(5, 4, 1);
-		assertEquals(true, g.existsEdge(4, 5));
-	}
-	
-	@Test
-	public void testDeleteEdge() {
-		assertEquals(true, g.existsEdge(3, 2));
-		assertEquals(true, g.existsEdge(2, 3));
-		g.deleteEdge(2, 3);
-		assertEquals(false, g.existsEdge(3, 2));
-		assertEquals(false, g.existsEdge(2, 3));
-		assertEquals(true, g.existsEdge(5, 3));
-		assertEquals(true, g.existsEdge(3, 5));
+	public void testInsertEdgeIntIntDouble() {
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testNumVertex() {
-		assertEquals(5, g.numVertex());
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testInsertVertex() {
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testNumEdges() {
-		assertEquals(3, g.numEdges());
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testExistsEdge() {
-		assertEquals(true, g.existsEdge(2, 3));
-		assertEquals(true, g.existsEdge(3, 2));
-		assertEquals(false, g.existsEdge(1, 4));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testWeightEdge() {
-		assertEquals(0.6, g.weightEdge(2, 3), 0.1);
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testInsertEdgeIntInt() {
-		g.insertEdge(4, 3);
-		assertEquals(true, g.existsEdge(4, 3));
-		assertEquals(1, g.weightEdge(4, 3), 0.1);
-		assertEquals(1, g.weightEdge(3, 4), 0.1);
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testInsertEdgeP() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAdj() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGraphD() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testToString() {
+		fail("Not yet implemented");
 	}
 
 }
