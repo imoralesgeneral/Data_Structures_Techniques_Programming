@@ -39,10 +39,11 @@ public class BTreeDynamic<T> implements BTreeInterface<T>
         T tRoot = tree.getRoot();
         BTreeInterface<T> tLeft = tree.getLeftChild();
         BTreeInterface<T> tRight = tree.getRightChild();
-        
         this.setRoot(tRoot);
-        this.setLeftChild(new BTreeDynamic<T>(tLeft));
-        this.setRightChild(new BTreeDynamic<T>(tRight));
+        //this.setLeftChild(new BTreeDynamic<T>(tLeft));
+        this.left = tLeft;
+        //this.setRightChild(new BTreeDynamic<T>(tRight));
+        this.right = tRight;
     }
 
    @Override 
@@ -109,7 +110,13 @@ public class BTreeDynamic<T> implements BTreeInterface<T>
     @Override 
     public boolean contains(T elem)
     {
-        return this.root.equals(elem) || this.left.contains(elem) || this.right.contains(elem);
+    	boolean sol = false;
+    	BTreeIterator<T> it = (BTreeIterator<T>) this.getIterator(0);
+		while(it.hasNext() && !sol) {
+			if(it.getNext().equals(elem)) sol = true;
+		}
+    	return sol;
+        //return this.root.equals(elem) || this.left.contains(elem) || this.right.contains(elem);
     }
     
     @Override 
