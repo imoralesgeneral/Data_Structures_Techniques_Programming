@@ -37,9 +37,9 @@ public class GraphDT<T> extends GraphD{
 		insertEdgeP(obtainCode(i), obtainCode(j), w);
 	}
 	
-	/*public void deleteEdge(T i, T j) {
-		deleteEdge(obtainCode(i), obtainCode(j));
-	}*/
+	public void deleteEdge(T i, T j) {
+		super.deleteEdge(obtainCode(i), obtainCode(j));
+	}
 	
 	public ListDynamic<Adjacent> adj(T i) {
 		// TODO Auto-generated method stub

@@ -24,9 +24,6 @@ public class TestGraphDT {
 
 	@Test
 	public void testExistsEdgeTT() {
-		
-		
-		
 		assertEquals(true, g.existsEdge("yo2","yo3"));
 		assertEquals(false, g.existsEdge("yo3","yo2"));
 	}
@@ -48,11 +45,11 @@ public class TestGraphDT {
 		assertEquals(true, g.existsEdge("yo3","yo2"));
 	}
 
-/*	@Test
+	@Test
 	public void testDeleteEdgeTT() {
 		g.deleteEdge("yo2", "yo3");
 		assertEquals(false, g.existsEdge("yo2","yo3"));
-	}*/
+	}
 /*
 	@Test
 	public void testAdjT() {

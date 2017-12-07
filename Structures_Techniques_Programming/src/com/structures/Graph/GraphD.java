@@ -26,7 +26,8 @@ public class GraphD extends GraphInterface{
 	@Override
 	public void insertVertex() {
 		// TODO Auto-generated method stub
-		
+		numV++;
+		extendList();
 	}
 
 	@Override
@@ -100,6 +101,17 @@ public class GraphD extends GraphInterface{
 				numE--;
 			}
 		}
+		eArray[v1] = l_aux;
+	}
+	
+	private void extendList() {
+		ListDynamic<Adjacent> l[] = new ListDynamic[numV+1];
+		for(int i=1; i<=numV-1; i++)
+		{
+			l[i] = eArray[i];
+		}
+		l[numV] = new ListDynamic<Adjacent>();
+		eArray = l;
 	}
 
 }

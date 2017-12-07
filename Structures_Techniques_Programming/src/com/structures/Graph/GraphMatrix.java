@@ -28,7 +28,17 @@ public class GraphMatrix {
 	* Insert a new vertex into the graph.
 	* @return a graph including the new vertex.
 	*/
-	//public void insertVertex();
+	public void insertVertex() {
+		n++;
+		double[][] matrix_aux = new double[n][n];
+		for(int i=1; i<= n; i++){
+            for(int j=1; j<= n; j++){
+            	if(i == n) matrix_aux[i-1][j-1] = 0;
+            	if(j == n) matrix_aux[i-1][j-1] = 0;
+            }            
+        }
+		matrix = matrix_aux;
+	}
 	
 	/**
 	* Return the number of edges.

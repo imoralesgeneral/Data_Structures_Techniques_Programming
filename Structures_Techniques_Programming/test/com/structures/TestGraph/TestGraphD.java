@@ -15,11 +15,13 @@ public class TestGraphD {
 		assertEquals(5, g.numVertex());
 	}
 
-	/*@Test
+	@Test
 	public void testInsertVertex() {
 		g.insertVertex();
 		assertEquals(6, g.numVertex());
-	}*/
+		g.insertEdge(6, 1);
+		assertEquals(true, g.existsEdge(6,1));
+	}
 
 	@Test
 	public void testNumEdges() {
@@ -40,10 +42,8 @@ public class TestGraphD {
 	public void testWeightEdge() {
 		g.insertEdge(1, 2);
 		g.insertEdgeP(4, 2, 3);
-		int aux1 = Integer.parseInt(Double.toString(g.weightEdge(1,2)));
-		int aux2 = Integer.parseInt(Double.toString(g.weightEdge(4,2)));
-		assertEquals(1, aux1, 0.1);
-		assertEquals(3, aux2, 0.1);
+		assertEquals(1, g.weightEdge(1,2), 0.1);
+		assertEquals(3, g.weightEdge(4,2), 0.1);
 	}
 
 	@Test

@@ -27,6 +27,17 @@ GraphND g = new GraphND(5);
 	}
 	
 	@Test
+	public void testInsertVertex() {
+		g.insertVertex();
+		assertEquals(6, g.numVertex());
+		g.insertEdge(6, 1, 3);
+		assertEquals(true, g.existsEdge(6,1));
+		assertEquals(true, g.existsEdge(6, 1));
+		assertEquals(3, g.weightEdge(6, 1), 0.1);
+	}
+
+	
+	@Test
 	public void testDeleteEdge() {
 		assertEquals(true, g.existsEdge(3, 2));
 		assertEquals(true, g.existsEdge(2, 3));

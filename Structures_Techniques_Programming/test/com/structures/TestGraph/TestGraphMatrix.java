@@ -29,6 +29,18 @@ public class TestGraphMatrix {
 		assertEquals(2, g.numEdges());
 		g.insertEdge(5, 1);
 	}
+	
+	@Test
+	public void testInsertVertex() {
+		g.insertVertex();
+		assertEquals(6, g.numVertex());
+		g.insertEdge(6, 1);
+		assertEquals(true, g.existsEdge(6,1));
+		g.insertEdgeP(6, 3, 5);
+		assertEquals(5, g.weightEdge(6, 3), 0.1);
+		g.printMatrix();
+	}
+
 
 	@Test
 	public void testExistsEdge() {
