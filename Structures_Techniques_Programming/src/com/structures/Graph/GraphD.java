@@ -40,12 +40,14 @@ public class GraphD extends GraphInterface{
 		// TODO Auto-generated method stub
 		ListDynamic<Adjacent> l = eArray[v1];
 		boolean exists = false;
-		while(!exists) {
-			ListIterator li = (ListIterator) l.getIterator();
+		boolean seguir = true;
+		while(!exists && seguir) {
+			ListIterator<Adjacent> li = (ListIterator<Adjacent>) l.getIterator();
 			while(li.hasNext()) {
 				Adjacent ad = (Adjacent) li.getNext();
 				if(ad.dest == v2) exists=true;
 			}
+			seguir = false;
 		}
 		return exists;
 	}
@@ -55,7 +57,7 @@ public class GraphD extends GraphInterface{
 		// TODO Auto-generated method stub
 		double w = 0;
 		ListDynamic<Adjacent> l = eArray[v1];
-		ListIterator li = (ListIterator) l.getIterator();
+		ListIterator<Adjacent> li = (ListIterator<Adjacent>) l.getIterator();
 		while(li.hasNext()) {
 			Adjacent ad = (Adjacent) li.getNext();
 			if(ad.dest == v2) w=ad.weight;
@@ -89,7 +91,7 @@ public class GraphD extends GraphInterface{
 		// TODO Auto-generated method stub
 		ListDynamic<Adjacent> l = eArray[v1];
 		ListDynamic<Adjacent> l_aux = new ListDynamic<Adjacent>();
-		ListIterator li = (ListIterator) l.getIterator();
+		ListIterator<Adjacent> li = (ListIterator<Adjacent>) l.getIterator();
 		while(li.hasNext()) {
 			Adjacent ad = (Adjacent) li.getNext();
 			if(ad.dest != v2) {

@@ -3,71 +3,68 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestGraphND {
+import com.structures.Graph.GraphND;
 
-	@Test
-	public void testDeleteEdge() {
-		fail("Not yet implemented");
+public class TestGraphND {
+	
+GraphND g = new GraphND(5);
+	
+	public TestGraphND() {
+	g.insertEdge(1, 2, 0.5);
+	g.insertEdge(2, 3, 0.6);
+	g.insertEdge(5, 3, 0.7);
 	}
 
 	@Test
 	public void testGraphND() {
-		fail("Not yet implemented");
+		assertNotNull(g);
 	}
-
+	
 	@Test
-	public void testInsertEdgeIntIntDouble() {
-		fail("Not yet implemented");
+	public void testInsertEdge() {
+		g.insertEdge(5, 4, 1);
+		assertEquals(true, g.existsEdge(4, 5));
+	}
+	
+	@Test
+	public void testDeleteEdge() {
+		assertEquals(true, g.existsEdge(3, 2));
+		assertEquals(true, g.existsEdge(2, 3));
+		g.deleteEdge(2, 3);
+		assertEquals(false, g.existsEdge(3, 2));
+		assertEquals(false, g.existsEdge(2, 3));
+		assertEquals(true, g.existsEdge(5, 3));
+		assertEquals(true, g.existsEdge(3, 5));
 	}
 
 	@Test
 	public void testNumVertex() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testInsertVertex() {
-		fail("Not yet implemented");
+		assertEquals(5, g.numVertex());
 	}
 
 	@Test
 	public void testNumEdges() {
-		fail("Not yet implemented");
+		assertEquals(3, g.numEdges());
 	}
 
 	@Test
 	public void testExistsEdge() {
-		fail("Not yet implemented");
+		assertEquals(true, g.existsEdge(2, 3));
+		assertEquals(true, g.existsEdge(3, 2));
+		assertEquals(false, g.existsEdge(1, 4));
 	}
 
 	@Test
 	public void testWeightEdge() {
-		fail("Not yet implemented");
+		assertEquals(0.6, g.weightEdge(2, 3), 0.1);
 	}
 
 	@Test
 	public void testInsertEdgeIntInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testInsertEdgeP() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testAdj() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGraphD() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+		g.insertEdge(4, 3);
+		assertEquals(true, g.existsEdge(4, 3));
+		assertEquals(1, g.weightEdge(4, 3), 0.1);
+		assertEquals(1, g.weightEdge(3, 4), 0.1);
 	}
 
 }
