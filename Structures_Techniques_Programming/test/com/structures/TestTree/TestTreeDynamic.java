@@ -46,10 +46,10 @@ public class TestTreeDynamic {
 		assertEquals((Integer)1, bt4.getRoot());
 	}
 
-	@Test
+	/*@Test
 	public void testGetChildren() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	public void testRemoveChild() {

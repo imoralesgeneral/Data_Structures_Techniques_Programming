@@ -102,10 +102,10 @@ public class Heap<T> implements HeapInterface<T> {
         }		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getTop() {
 		Object element = null;
-		ComparatorHeap cp = new ComparatorHeap();
         if(c != 0)
         {
         	element = (T) V[1];
@@ -118,6 +118,7 @@ public class Heap<T> implements HeapInterface<T> {
         return (T) element;	
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getFirst() {
 		Object first = null;
@@ -135,6 +136,7 @@ public class Heap<T> implements HeapInterface<T> {
 	* @param e index first element.
 	* @param i index second element.
 	*/
+	@SuppressWarnings("unchecked")
 	private void exchange(int e, int i) {
 		T aux_one = (T)V[e];
         T aux_two = (T)V[i];
@@ -161,6 +163,7 @@ public class Heap<T> implements HeapInterface<T> {
         return s;
     }
 	
+	@SuppressWarnings("unchecked")
 	private void insertV(Object[] v)
 	{
 		int len = v.length;

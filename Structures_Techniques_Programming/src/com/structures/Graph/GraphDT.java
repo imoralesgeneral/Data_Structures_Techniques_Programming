@@ -1,7 +1,6 @@
 package com.structures.Graph;
 
 import com.structures.HashTable.HashTable;
-import com.structures.Iterator.ListIterator;
 import com.structures.List.ListDynamic;
 
 public class GraphDT<T> extends GraphD{
@@ -12,6 +11,7 @@ public class GraphDT<T> extends GraphD{
 	/* Firstly, you have to tag vertex */
 	/* Code is the position of vertex */
 
+	@SuppressWarnings("unchecked")
 	public GraphDT(int num_vert) {
 		super(num_vert);
 		tags = (T[]) new Object[num_vert+1];

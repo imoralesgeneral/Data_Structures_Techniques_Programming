@@ -5,15 +5,18 @@ import com.structures.List.ListDynamic;
 
 public class HashTable<T, V> implements HashTableInterface<T, V>{
 
+	@SuppressWarnings("rawtypes")
 	private ListDynamic<Contenedor>[] v;
 	private int size;
 	
+	@SuppressWarnings("unchecked")
 	public HashTable()
 	{
 		this.size = 49;
 		v = new ListDynamic[49];
 	}
 	
+	@SuppressWarnings("unchecked")
 	public HashTable(int size)
 	{
 		this.size = size;
@@ -27,6 +30,7 @@ public class HashTable<T, V> implements HashTableInterface<T, V>{
 		return sol;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void insert(T key, V value) {
 		if(contains(key)) return;
@@ -38,6 +42,7 @@ public class HashTable<T, V> implements HashTableInterface<T, V>{
 		v[code].insert(contenedor);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public T find(T key) {
 		int code = calculateCode(key);
@@ -61,6 +66,7 @@ public class HashTable<T, V> implements HashTableInterface<T, V>{
 		return sol;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void delete(T key) {
 		int code = calculateCode(key);

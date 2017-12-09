@@ -1,6 +1,6 @@
 package com.structures.Comparator;
 
-public class ComparatorHeap implements ComparatorInterface {
+public class ComparatorHeap implements ComparatorInterface<Object> {
 
 	@Override
 	public int compare(Object e1, Object e2) {

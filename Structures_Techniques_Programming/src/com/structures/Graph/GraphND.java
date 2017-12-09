@@ -35,6 +35,7 @@ public class GraphND extends GraphD{
 	* @param an origin vertex.
 	* @param an destiny vertex.
 	*/
+	@SuppressWarnings("rawtypes")
 	public void deleteEdge(int v1, int v2) {
 		// TODO Auto-generated method stub
 		ListDynamic<Adjacent> l = eArray[v1];

@@ -104,6 +104,7 @@ public class GraphD extends GraphInterface{
 		eArray[v1] = l_aux;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void extendList() {
 		ListDynamic<Adjacent> l[] = new ListDynamic[numV+1];
 		for(int i=1; i<=numV-1; i++)

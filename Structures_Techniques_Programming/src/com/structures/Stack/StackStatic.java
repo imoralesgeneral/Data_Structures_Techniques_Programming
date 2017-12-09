@@ -26,7 +26,8 @@ public class StackStatic<T> implements StackInterface<T>
      * Constructor for objects of class StackStatic
      * @param stack
      */
-    public StackStatic(StackInterface<T> stack)
+    @SuppressWarnings("unchecked")
+	public StackStatic(StackInterface<T> stack)
     {
         if(stack != null) {
             this.capacity = stack.getLength();
@@ -65,7 +66,8 @@ public class StackStatic<T> implements StackInterface<T>
         }
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T getTop()
     {
         if(isEmpty()) {

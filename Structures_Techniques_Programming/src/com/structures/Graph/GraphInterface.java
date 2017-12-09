@@ -70,6 +70,8 @@ public abstract class GraphInterface {
 	*/
 	public abstract ListDynamic<Adjacent> adj(int v);
 	
+	@SuppressWarnings("rawtypes")
+	@Override
 	public String toString() {
 		String res = "";
 		for(int i = 1; i <= numVertex(); i++) {

@@ -53,7 +53,8 @@ public class ListStatic<T> implements ListInterface<T>
         return l;
     }
     
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T getFirst()
     {
         if(isEmpty()){ 

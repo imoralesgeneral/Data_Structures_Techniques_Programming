@@ -65,7 +65,8 @@ public class QueueStatic<T> implements QueueInterface<T>
         }
     }
     
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T getFirst()
     {
         if(isEmpty()){
