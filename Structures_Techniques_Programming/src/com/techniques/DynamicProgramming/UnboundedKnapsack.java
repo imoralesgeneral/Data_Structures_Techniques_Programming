@@ -9,27 +9,31 @@ public class UnboundedKnapsack {
     private ListDynamic<String> res;
     
     /**
-     * Constructor for objects of class Algoritmo
+     * Constructor for objects of class UnboundedKnapsack
      */
     public UnboundedKnapsack(int[] vol, int[] ben, int n, int V)
     {
-        // initialise instance variables
+
         M = new int[n+1][V+1];
         objects = new int[n+1];
-        MochilaEntera(vol, ben, n, V, this.M);
-        ObjetosMochila(vol, this.M, n, V, this.objects);
+        Knapsack(vol, ben, n, V, this.M);
+        ObjectsKnapsack(vol, this.M, n, V, this.objects);
         res = result(this.objects, vol, ben);
     }
     
     /**
-     * An example of a method - replace this comment with your own
+     * This method creates a table with the result
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  vol. Array with volume of objects
+     * @param  ben. Array with benefit of objects
+     * @param  n. Number of objects.
+     * @param  V. Volume of knapsack.
+     * @param  M. Table to add results.
+     * 
      */
-    private void MochilaEntera(int[] vol, int[] ben, int n, int V, int[][] M)
+    private void Knapsack(int[] vol, int[] ben, int n, int V, int[][] M)
     {
-        // put your code here
+
         int i,j;
         
         for (i=1; i<n; i++) {
@@ -51,13 +55,30 @@ public class UnboundedKnapsack {
         }
     }
     
+    /**
+     * 
+     * This method indicates which value is greater.
+     * @param i. Number.
+     * @param j. Number.
+     * 
+     */
     private int max(int i, int j)
     {
         if(i > j) return i;
         else return j;
     }
     
-    private void ObjetosMochila(int[] vol, int[][] M, int n, int V, int[] objects)
+    /**
+     * This method analyze with objects should be selected.
+     * 
+     * @param  vol. Array with volume of objects
+     * @param  objects. Array to add selected objects.
+     * @param  n. Number of objects
+     * @param  V. Volume of knapsack.
+     * @param  M. Table with provisional results.
+     * 
+     */
+    private void ObjectsKnapsack(int[] vol, int[][] M, int n, int V, int[] objects)
     {
         int i,W;
         W = V;
@@ -71,7 +92,7 @@ public class UnboundedKnapsack {
             }
         }
     }
-    
+
     private ListDynamic<String> result(int[] objects, int[] vol, int[] ben)
     {
         ListDynamic<Integer> objVol = new ListDynamic<Integer>();
