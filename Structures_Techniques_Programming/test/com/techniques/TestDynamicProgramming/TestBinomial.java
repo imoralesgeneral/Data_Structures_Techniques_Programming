@@ -13,9 +13,9 @@ public class TestBinomial {
 	public void testBinomial() {
 		Binomial Fa = new Binomial(3,2);
 		Binomial Fb = new Binomial(12,6);
-		Binomial Fc = new Binomial(1,0);
+		Binomial Fc = new Binomial(50,3);
 		assertEquals(3, Fa.devRes());
 		assertEquals(924, Fb.devRes());
-		assertEquals(-1, Fc.devRes());
+		assertEquals(19600, Fc.devRes());
 	}
 }

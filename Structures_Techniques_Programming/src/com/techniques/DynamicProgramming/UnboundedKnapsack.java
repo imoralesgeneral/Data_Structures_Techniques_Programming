@@ -33,9 +33,8 @@ public class UnboundedKnapsack {
      */
     private void Knapsack(int[] vol, int[] ben, int n, int V, int[][] M)
     {
-
         int i,j;
-        
+     
         for (i=1; i<n; i++) {
             M[i][0] = 0;
         }
@@ -54,20 +53,7 @@ public class UnboundedKnapsack {
             }
         }
     }
-    
-    /**
-     * 
-     * This method indicates which value is greater.
-     * @param i. Number.
-     * @param j. Number.
-     * 
-     */
-    private int max(int i, int j)
-    {
-        if(i > j) return i;
-        else return j;
-    }
-    
+       
     /**
      * This method analyze with objects should be selected.
      * 
@@ -93,6 +79,19 @@ public class UnboundedKnapsack {
         }
     }
 
+    /**
+     * 
+     * This method indicates which value is greater.
+     * @param i. Number.
+     * @param j. Number.
+     * 
+     */
+    private int max(int i, int j)
+    {
+        if(i > j) return i;
+        else return j;
+    }
+    
     private ListDynamic<String> result(int[] objects, int[] vol, int[] ben)
     {
         ListDynamic<Integer> objVol = new ListDynamic<Integer>();
@@ -115,7 +114,7 @@ public class UnboundedKnapsack {
         return result;
     }
     
-    public ListDynamic<String> devResultado()
+    public ListDynamic<String> devResult()
     {
         return res;
     }
